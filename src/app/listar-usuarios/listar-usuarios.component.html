@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of listaUsuarios">
+        <tr *ngFor="let user of listaUsuarios$ | async">
             <td>{{ user.id }}</td>
             <td>{{ user.nome }}</td>
             <td>{{ user.idade }}</td>

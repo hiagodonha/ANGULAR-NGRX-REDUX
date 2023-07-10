@@ -23,6 +23,12 @@
       "nome": "Usuario 4",
       "idade": "35",
       "perfil": "Técnico"
+    },
+    {
+      "id": 5,
+      "nome": "Usuario 6",
+      "idade": "55",
+      "perfil": "Consultor"
     }
   ]
 }

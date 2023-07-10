@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UsuarioModel } from '../Models/UsuarioModel';
 import { UsuarioService } from '../repository/UsuarioService';
+import { AppState } from '../store/app.state';
+import { Store } from '@ngrx/store';
+import * as fromUsuariosAction from '../store/usuarios/usuarios.actions';
 
 @Component({
   selector: 'app-cadastro-usuarios',
@@ -11,7 +14,7 @@ export class CadastroUsuariosComponent implements OnInit, OnDestroy {
 
   model: UsuarioModel = { id: 0, nome: '', idade: 0, perfil: '' };
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
@@ -19,9 +22,9 @@ export class CadastroUsuariosComponent implements OnInit, OnDestroy {
 
   addUsuario() {
     if(this.model.id == 0) {
-      this.usuarioService.addUsuario(this.model).subscribe();
+      this.store.dispatch(fromUsuariosAction.CreateUsuario({payload: this.model}))
     } else {
-      
+      console.log('atualizar', this.model);
     }
   }
 
