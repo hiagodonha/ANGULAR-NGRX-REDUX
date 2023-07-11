@@ -6,9 +6,8 @@ import * as fromUsuariosAction from './usuarios.actions';
 
 @Injectable()
 export class UsuariosEffects {
-    constructor(private actions$: Actions, private usuarioService: UsuarioService) {
-
-    }
+    
+    constructor(private actions$: Actions, private usuarioService: UsuarioService) {}
 
     loadUsuarios$ = createEffect(
         () =>

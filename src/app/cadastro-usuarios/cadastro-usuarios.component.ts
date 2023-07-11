@@ -10,26 +10,33 @@ import * as fromUsuariosAction from '../store/usuarios/usuarios.actions';
   templateUrl: './cadastro-usuarios.component.html',
   styleUrls: ['./cadastro-usuarios.component.scss']
 })
-export class CadastroUsuariosComponent implements OnInit, OnDestroy {
+export class CadastroUsuariosComponent implements OnInit {
 
   model: UsuarioModel = { id: 0, nome: '', idade: 0, perfil: '' };
 
   constructor(private store: Store<AppState>) { }
 
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void { }
+
 
   addUsuario() {
+
     if(this.model.id == 0) {
+      console.log('this.model = ', this.model);
       this.store.dispatch(fromUsuariosAction.CreateUsuario({payload: this.model}))
-    } else {
+      
+    } 
+    else {
       console.log('atualizar', this.model);
+      this.store.dispatch(fromUsuariosAction.UpdateUsuario({payload: this.model}))
     }
+
+    this.clean()
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  clean() {
+    this.model = { id: 0, nome: '', idade: 0, perfil: '' }
   }
+
 
 }

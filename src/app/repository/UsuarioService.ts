@@ -28,7 +28,7 @@ export class UsuarioService {
     updateUsuario(record: UsuarioModel) {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8')
-
+        console.log(this.URL_API + '/' + record.id, JSON.stringify(record), { headers : headers});
         return this.http.put<UsuarioModel>(this.URL_API + '/' + record.id, JSON.stringify(record), { headers : headers})
     }
 

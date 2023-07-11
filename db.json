@@ -14,9 +14,9 @@
     },
     {
       "id": 3,
-      "nome": "Maria",
-      "idade": 33,
-      "perfil": "Consultor"
+      "nome": "jose",
+      "idade": "45",
+      "perfil": "ADM"
     },
     {
       "id": 4,
@@ -26,9 +26,15 @@
     },
     {
       "id": 5,
-      "nome": "Usuario 6",
-      "idade": "55",
-      "perfil": "Consultor"
+      "nome": "Maria",
+      "idade": "15",
+      "perfil": "ADM"
+    },
+    {
+      "id": 6,
+      "nome": "pedrinho",
+      "idade": "45",
+      "perfil": "Tecnico"
     }
   ]
 }

@@ -12,22 +12,25 @@ import { Observable } from 'rxjs';
   templateUrl: './listar-usuarios.component.html',
   styleUrls: ['./listar-usuarios.component.scss']
 })
-export class ListarUsuariosComponent implements OnInit, OnDestroy {
+export class ListarUsuariosComponent implements OnInit {
 
   listaUsuarios$: Observable<UsuarioModel[]> = this.store.select(fromUsuariosSelector.getUsuarios)
+  usario$: Observable<UsuarioModel | null> = this.store.select(fromUsuariosSelector.getUsuario) 
 
-  constructor(
-    private store: Store<AppState>,
-    private usuarioService: UsuarioService
-    ) {}
+  constructor( private store: Store<AppState>) {}
   
   ngOnInit(): void {
     this.store.dispatch(fromUsuariosAction.LoadUsuarios());
   }
 
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+  editar(id: number) {
+    console.log('editar')
+    this.store.dispatch(fromUsuariosAction.LoadUsuario({payload: id}));
   }
 
+  excluir(id: number) {
+    console.log('excluir')
+    this.store.dispatch(fromUsuariosAction.DeleteUsuario({payload: id}));
+  }
 
 }
